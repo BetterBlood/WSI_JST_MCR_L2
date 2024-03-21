@@ -47,7 +47,7 @@ public class MainWindow implements Displayer {
         JPanel panel = new JPanel();
 
         Dimension screenSize = toolkit.getScreenSize();
-        frame.setLocation(new Point((int) screenSize.getWidth() / 3, (int) screenSize.getHeight() / 3));
+        frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
 
         panel.setBackground(Color.GRAY);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
