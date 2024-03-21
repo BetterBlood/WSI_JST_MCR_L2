@@ -1,5 +1,7 @@
 import Shape.Bordered.BorderedCircle;
 import Shape.Bordered.BorderedSquare;
+import Shape.Factory.BorderedShapeFactory;
+import Shape.Factory.FullShapeFactory;
 import Shape.Full.FullCircle;
 import Shape.Full.FullSquare;
 import Shape.Shape;
@@ -27,17 +29,20 @@ public class Main {
         MainWindow window2 = MainWindow.getInstance(); // récupère le même objet que la ligne précédente
         window2.setTitle("Bouncer");
 
+        BorderedShapeFactory bFactory = new BorderedShapeFactory();
+        FullShapeFactory fFactory = new FullShapeFactory();
+
         // tmp :
         shapes = new Shape[1 * 4];
         for (int i = 0; i < shapes.length; ++i)
         {
-            shapes[i] = new FullCircle(window.getWidth(), window.getHeight());
+            shapes[i] = fFactory.createCircle(window.getWidth(), window.getHeight());
             ++i;
-            shapes[i] = new FullSquare(window.getWidth(), window.getHeight());
+            shapes[i] = fFactory.createSquare(window.getWidth(), window.getHeight());
             ++i;
-            shapes[i] = new BorderedCircle(window.getWidth(), window.getHeight());
+            shapes[i] = bFactory.createCircle(window.getWidth(), window.getHeight());
             ++i;
-            shapes[i] = new BorderedSquare(window.getWidth(), window.getHeight());
+            shapes[i] = bFactory.createSquare(window.getWidth(), window.getHeight());
         }
         new Timer(25, e -> update(window)).start();
     }
