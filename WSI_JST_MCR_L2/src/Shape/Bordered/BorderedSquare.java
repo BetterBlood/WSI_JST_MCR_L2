@@ -1,8 +1,9 @@
 package Shape.Bordered;
 
+import Shape.Square;
 import java.awt.*;
 
-public class BorderedSquare extends BorderedShape {
+public class BorderedSquare extends Square {
     public BorderedSquare(int maxSizes) {
         super(maxSizes);
     }

@@ -49,7 +49,7 @@ public class MainWindow implements Displayer {
         Dimension screenSize = toolkit.getScreenSize();
         frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
 
-        panel.setBackground(Color.GRAY);
+        panel.setBackground(Color.LIGHT_GRAY);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
         frame.setSize(dimension.width + 15, dimension.height + 35);

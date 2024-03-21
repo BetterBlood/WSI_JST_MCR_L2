@@ -1,8 +1,9 @@
 package Shape.Bordered;
 
+import Shape.Circle;
 import java.awt.*;
 
-public class BorderedCircle extends BorderedShape{
+public class BorderedCircle extends Circle {
     public BorderedCircle(int maxSizes) {
         super(maxSizes);
     }

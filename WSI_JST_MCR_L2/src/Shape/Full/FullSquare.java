@@ -1,5 +1,6 @@
 package Shape.Full;
 
+import Shape.Square;
 import java.awt.*;
 
 /**
@@ -10,7 +11,7 @@ import java.awt.*;
  * -----------------------------------------------------------------------------------
  **/
 
-public class FullSquare extends FullShape {
+public class FullSquare extends Square {
     public FullSquare(int maxSizes) {
         super(maxSizes);
     }

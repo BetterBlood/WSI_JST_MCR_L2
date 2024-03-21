@@ -1,5 +1,6 @@
 package Shape.Full;
 
+import Shape.Circle;
 import java.awt.*;
 
 /**
@@ -10,7 +11,7 @@ import java.awt.*;
  * -----------------------------------------------------------------------------------
  **/
 
-public class FullCircle extends FullShape {
+public class FullCircle extends Circle {
     public FullCircle(int maxSizes) {
         super(maxSizes);
     }
