@@ -1,4 +1,4 @@
-package Shape;
+package Shape.Full;
 
 import java.awt.*;
 
@@ -10,17 +10,15 @@ import java.awt.*;
  * -----------------------------------------------------------------------------------
  **/
 
-public class Square extends Shape {
-    public Square(int maxSizes) {
+public class FullCircle extends FullShape {
+    public FullCircle(int maxSizes) {
         super(maxSizes);
     }
 
     @Override
     public void paintComponent(Graphics g){
-        //super.paintComponent(g);
-        //super.setBackground(Color.BLUE);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.BLUE);
-        g2d.fillRect(0, 0, size, size);
+        g2d.fillOval(0, 0, size, size);
     }
 }

@@ -1,7 +1,9 @@
 package View;
+import Shape.Bordered.BorderedCircle;
+import Shape.Bordered.BorderedSquare;
 import Shape.Shape;
-import Shape.Circle;
-import Shape.Square;
+import Shape.Full.FullCircle;
+import Shape.Full.FullSquare;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +39,7 @@ public class MainWindow implements Displayer {
         int nbrShape = 25; // 25
         dimension = new Dimension(size, size);
 
-        shapes = new Shape[nbrShape * 2];
+        shapes = new Shape[nbrShape * 4];
         frame = new JFrame();
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -47,7 +49,6 @@ public class MainWindow implements Displayer {
         Dimension screenSize = toolkit.getScreenSize();
         frame.setLocation(new Point((int) screenSize.getWidth() / 3, (int) screenSize.getHeight() / 3));
 
-        //panel.setSize(dimension);
         panel.setBackground(Color.GRAY);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
@@ -56,14 +57,20 @@ public class MainWindow implements Displayer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(panel);
-        frame.setResizable(false);
+        //frame.setResizable(false);
 
         for (int i = 0; i < shapes.length; ++i)
         {
-            shapes[i] = new Circle(size);
+            shapes[i] = new FullCircle(size);
             panel.add(shapes[i]);
             ++i;
-            shapes[i] = new Square(size);
+            shapes[i] = new FullSquare(size);
+            panel.add(shapes[i]);
+            ++i;
+            shapes[i] = new BorderedCircle(size);
+            panel.add(shapes[i]);
+            ++i;
+            shapes[i] = new BorderedSquare(size);
             panel.add(shapes[i]);
         }
 
@@ -117,7 +124,7 @@ public class MainWindow implements Displayer {
     private void moveShapes()
     {
         for (Shape shape : shapes) {
-            shape.move(dimension.width);
+            shape.moveShape(frame.getWidth(), frame.getHeight());
         }
     }
     // endregion

@@ -15,7 +15,8 @@ import java.util.Vector;
 public abstract class Shape extends JPanel {
     protected final static Random random = new Random();
     protected final int size;
-    protected Point location;
+    protected double xPos;
+    protected double yPos;
     protected MovementVector movement;
     protected double speed;
 
@@ -24,10 +25,11 @@ public abstract class Shape extends JPanel {
         int maxSize = 50;
         size = random.nextInt(minSize, maxSize);
         movement = new MovementVector(random.nextInt(-10, 10), random.nextInt(-10, 10));
-        speed = 4;
+        speed = random.nextInt(3, 7);
         setSize(size, size);
-        location = new Point(random.nextInt(maxSizes - maxSize), random.nextInt(maxSizes - maxSize));
-        setLocation(location);
+        xPos = random.nextInt(maxSizes - maxSize);
+        yPos = random.nextInt(maxSizes - maxSize);
+        setLocation(new Point((int) xPos, (int)yPos));
         setVisible(true);
     }
 
@@ -35,33 +37,33 @@ public abstract class Shape extends JPanel {
         super.paintComponent(g);
     }
 
-    public void move(int maxSize)
+    public void moveShape(int maxWidth, int maxHeight)
     {
         // upper left corner
-        int newX = (int) (location.x + movement.getX() * speed);
-        int newY = (int) (location.y + movement.getY() * speed);
+        int newX = (int) (xPos + movement.getX() * speed);
+        int newY = (int) (yPos + movement.getY() * speed);
 
-        if (newX + size >= maxSize || newX < 0)
+        if (newX + size > maxWidth || newX < 0)
         {
             //if (newX + size >= maxSize)
                 //System.out.println((location.x + size) + " " + (newX + size) + " " + movement.getX());
             movement.swapOnX();
-            newX = (int) (location.x + movement.getX() * speed);
+            newX = (int) (xPos + movement.getX() * speed);
         }
 
-        if (newY + size >= maxSize || newY < 0)
+        if (newY + size > maxHeight || newY < 0)
         {
             //if (newY + size >= maxSize)
                 //System.out.println((location.y + size) + " " + (newY + size) + " " + movement.getY());
 
             movement.swapOnY();
-            newY = (int) (location.y + movement.getY() * speed);
+            newY = (int) (yPos + movement.getY() * speed);
         }
 
-        location.x = newX;
-        location.y = newY;
+        xPos = newX;
+        yPos = newY;
 
-        setLocation(location);
+        setLocation(new Point((int) xPos, (int) yPos));
     }
 
 }
