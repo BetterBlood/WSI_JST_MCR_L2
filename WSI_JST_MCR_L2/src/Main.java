@@ -49,11 +49,11 @@ public class Main {
 
     private static void moveShapes(Displayer window)
     {
-        for (Shape shape : shapes) {
-            shape.moveShape(window.getWidth(), window.getHeight());
-            shape.paintComponent(window.getGraphics());
-        }
         window.repaint();
+        for (Shape shape : shapes) {
+            shape.moveShape(window.getWidth(), window.getHeight()); // ok
+            shape.paintComponent(window.getGraphics()); // pas ok
+        }
     }
 
 }

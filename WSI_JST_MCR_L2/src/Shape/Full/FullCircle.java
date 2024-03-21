@@ -18,8 +18,8 @@ public class FullCircle extends Circle {
 
     @Override
     public void paintComponent(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.BLUE);
-        g2d.fillOval(0, 0, size, size);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Color.BLUE);
+        g2.fillOval(0, 0, size, size);
     }
 }

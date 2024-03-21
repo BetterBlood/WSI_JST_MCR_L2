@@ -12,7 +12,7 @@ import java.util.Vector;
  * @Info        : /
  * -----------------------------------------------------------------------------------
  **/
-public abstract class Shape extends JPanel {
+public abstract class Shape extends JComponent {
     protected final static Random random = new Random();
     protected final int size;
     protected double xPos;

@@ -10,8 +10,8 @@ public class BorderedCircle extends Circle {
 
     @Override
     public void paintComponent(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.GREEN);
-        g2d.drawOval(0, 0, size - 1, size - 1);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Color.GREEN);
+        g2.drawOval(0, 0, size - 1, size - 1);
     }
 }

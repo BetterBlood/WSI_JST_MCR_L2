@@ -20,8 +20,8 @@ public class FullSquare extends Square {
     public void paintComponent(Graphics g){
         //super.paintComponent(g);
         //super.setBackground(Color.BLUE);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.ORANGE);
-        g2d.fillRect(0, 0, size, size);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Color.ORANGE);
+        g2.fillRect(0, 0, size, size);
     }
 }

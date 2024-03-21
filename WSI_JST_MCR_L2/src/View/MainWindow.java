@@ -20,7 +20,6 @@ import java.awt.*;
 public class MainWindow implements Displayer {
     // region Field
     protected Image image;
-    private final Shape[] shapes;
     private final Dimension dimension;
     private final JFrame frame;
     // endregion
@@ -36,10 +35,8 @@ public class MainWindow implements Displayer {
     private MainWindow(){
         System.out.println("-- Singleton()");
         int size = 500;
-        int nbrShape = 25; // 25
         dimension = new Dimension(size, size);
 
-        shapes = new Shape[nbrShape * 4];
         frame = new JFrame();
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -57,23 +54,6 @@ public class MainWindow implements Displayer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(panel);
-        //frame.setResizable(false);
-
-        /*
-        for (int i = 0; i < shapes.length; ++i)
-        {
-            shapes[i] = new FullCircle(size);
-            panel.add(shapes[i]);
-            ++i;
-            shapes[i] = new FullSquare(size);
-            panel.add(shapes[i]);
-            ++i;
-            shapes[i] = new BorderedCircle(size);
-            panel.add(shapes[i]);
-            ++i;
-            shapes[i] = new BorderedSquare(size);
-            panel.add(shapes[i]);
-        }//*/
 
         image = frame.createImage(dimension.width, dimension.height);
     }
@@ -86,12 +66,12 @@ public class MainWindow implements Displayer {
 
     @Override
     public int getWidth() {
-        return dimension.width;
+        return frame.getWidth();
     }
 
     @Override
     public int getHeight() {
-        return dimension.height;
+        return frame.getHeight();
     }
 
     @Override
@@ -101,9 +81,6 @@ public class MainWindow implements Displayer {
 
     @Override
     public void repaint() {
-        for (Shape shape : shapes) {
-            //shape.paintComponent(getGraphics());
-        }
         frame.repaint();
     }
 
@@ -115,17 +92,5 @@ public class MainWindow implements Displayer {
 
 
     // region Private Methods
-    private void update()
-    {
-        moveShapes();
-        //repaint();
-    }
-
-    private void moveShapes()
-    {
-        for (Shape shape : shapes) {
-            shape.moveShape(frame.getWidth(), frame.getHeight());
-        }
-    }
     // endregion
 }
