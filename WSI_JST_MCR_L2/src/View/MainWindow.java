@@ -34,7 +34,7 @@ public class MainWindow implements Displayer {
     private MainWindow(){
         System.out.println("-- Singleton()");
         int size = 500;
-        int nbrShape = 1; // 25
+        int nbrShape = 25; // 25
         dimension = new Dimension(size, size);
 
         shapes = new Shape[nbrShape * 2];

@@ -43,16 +43,16 @@ public abstract class Shape extends JPanel {
 
         if (newX + size >= maxSize || newX < 0)
         {
-            if (newX + size >= maxSize)
-                System.out.println((location.x + size) + " " + (newX + size) + " " + movement.getX());
+            //if (newX + size >= maxSize)
+                //System.out.println((location.x + size) + " " + (newX + size) + " " + movement.getX());
             movement.swapOnX();
             newX = (int) (location.x + movement.getX() * speed);
         }
 
         if (newY + size >= maxSize || newY < 0)
         {
-            if (newY + size >= maxSize)
-                System.out.println((location.y + size) + " " + (newY + size) + " " + movement.getY());
+            //if (newY + size >= maxSize)
+                //System.out.println((location.y + size) + " " + (newY + size) + " " + movement.getY());
 
             movement.swapOnY();
             newY = (int) (location.y + movement.getY() * speed);
