@@ -50,7 +50,8 @@ public class MainWindow implements Displayer {
         //panel.setSize(dimension);
         panel.setBackground(Color.GRAY);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
-        frame.setSize(dimension);
+        // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
+        frame.setSize(dimension.width + 15, dimension.height + 35);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -110,7 +111,7 @@ public class MainWindow implements Displayer {
     private void update()
     {
         moveShapes();
-        repaint();
+        //repaint();
     }
 
     private void moveShapes()

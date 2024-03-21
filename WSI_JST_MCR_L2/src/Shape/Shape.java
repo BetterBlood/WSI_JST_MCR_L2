@@ -24,7 +24,7 @@ public abstract class Shape extends JPanel {
         int maxSize = 50;
         size = random.nextInt(minSize, maxSize);
         movement = new MovementVector(random.nextInt(-10, 10), random.nextInt(-10, 10));
-        speed = 3;
+        speed = 4;
         setSize(size, size);
         location = new Point(random.nextInt(maxSizes - maxSize), random.nextInt(maxSizes - maxSize));
         setLocation(location);
