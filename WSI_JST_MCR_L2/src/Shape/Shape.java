@@ -20,15 +20,15 @@ public abstract class Shape extends JPanel {
     protected MovementVector movement;
     protected double speed;
 
-    public Shape(int maxSizes) {
+    public Shape(int maxWidth, int maxHeight) {
         int minSize = 10;
         int maxSize = 50;
         size = random.nextInt(minSize, maxSize);
         movement = new MovementVector(random.nextInt(-10, 10), random.nextInt(-10, 10));
         speed = random.nextInt(3, 7);
         setSize(size, size);
-        xPos = maxSizes/2.;
-        yPos = maxSizes/2.;
+        xPos = maxWidth/2.;
+        yPos = maxHeight/2.;
         setLocation(new Point((int) xPos, (int)yPos));
         setVisible(true);
     }

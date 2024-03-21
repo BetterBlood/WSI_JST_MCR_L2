@@ -12,8 +12,8 @@ import java.awt.*;
  **/
 
 public class FullSquare extends Square {
-    public FullSquare(int maxSizes) {
-        super(maxSizes);
+    public FullSquare(int maxWidth, int maxHeight) {
+        super(maxWidth, maxHeight);
     }
 
     @Override

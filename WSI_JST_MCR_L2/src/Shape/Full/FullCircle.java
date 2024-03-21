@@ -12,8 +12,8 @@ import java.awt.*;
  **/
 
 public class FullCircle extends Circle {
-    public FullCircle(int maxSizes) {
-        super(maxSizes);
+    public FullCircle(int maxWidth, int maxHeight) {
+        super(maxWidth, maxHeight);
     }
 
     @Override

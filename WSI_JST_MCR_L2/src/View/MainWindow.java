@@ -20,7 +20,7 @@ import java.awt.*;
 public class MainWindow implements Displayer {
     // region Field
     protected Image image;
-    private Shape[] shapes;
+    private final Shape[] shapes;
     private final Dimension dimension;
     private final JFrame frame;
     // endregion
@@ -59,6 +59,7 @@ public class MainWindow implements Displayer {
         frame.add(panel);
         //frame.setResizable(false);
 
+        /*
         for (int i = 0; i < shapes.length; ++i)
         {
             shapes[i] = new FullCircle(size);
@@ -72,10 +73,9 @@ public class MainWindow implements Displayer {
             ++i;
             shapes[i] = new BorderedSquare(size);
             panel.add(shapes[i]);
-        }
+        }//*/
 
         image = frame.createImage(dimension.width, dimension.height);
-        new Timer(25, e -> update()).start();
     }
     // endregion
 
@@ -104,7 +104,7 @@ public class MainWindow implements Displayer {
         for (Shape shape : shapes) {
             //shape.paintComponent(getGraphics());
         }
-        //frame.repaint();
+        frame.repaint();
     }
 
     @Override

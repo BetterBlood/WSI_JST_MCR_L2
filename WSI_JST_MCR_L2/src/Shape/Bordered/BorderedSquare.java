@@ -4,8 +4,8 @@ import Shape.Square;
 import java.awt.*;
 
 public class BorderedSquare extends Square {
-    public BorderedSquare(int maxSizes) {
-        super(maxSizes);
+    public BorderedSquare(int maxWidth, int maxHeight){
+        super(maxWidth, maxHeight);
     }
     @Override
     public void paintComponent(Graphics g){

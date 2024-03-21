@@ -4,8 +4,8 @@ import Shape.Circle;
 import java.awt.*;
 
 public class BorderedCircle extends Circle {
-    public BorderedCircle(int maxSizes) {
-        super(maxSizes);
+    public BorderedCircle(int maxWidth, int maxHeight) {
+        super(maxWidth, maxHeight);
     }
 
     @Override
