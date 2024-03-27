@@ -22,6 +22,7 @@ public class MainWindow implements Displayer {
     protected Image image;
     private final Dimension dimension;
     private final JFrame frame;
+    private final JPanel panel;
     // endregion
 
     // region Intern Static Class (for Singleton)
@@ -41,7 +42,7 @@ public class MainWindow implements Displayer {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
 
-        JPanel panel = new JPanel();
+        panel = new JPanel();
 
         Dimension screenSize = toolkit.getScreenSize();
         frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
@@ -53,9 +54,12 @@ public class MainWindow implements Displayer {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.add(panel);
+        //frame.add(panel);
+        frame.setContentPane(panel);
 
-        image = frame.createImage(dimension.width, dimension.height);
+        image = panel.createImage(dimension.width, dimension.height);
+        panel.getGraphics().drawImage(image, 0, 0, null);
+        //frame.pack();
     }
     // endregion
 
@@ -81,7 +85,8 @@ public class MainWindow implements Displayer {
 
     @Override
     public void repaint() {
-        frame.repaint();
+        //frame.getGraphics().drawImage(image, 0, 0, null);
+        panel.paintComponents(getGraphics());
     }
 
     @Override

@@ -54,11 +54,13 @@ public class Main {
 
     private static void moveShapes(Displayer window)
     {
-        window.repaint();
+        //System.out.println("moveShapes called");
+        //window.repaint();
         for (Shape shape : shapes) {
             shape.moveShape(window.getWidth(), window.getHeight()); // ok
             shape.paintComponent(window.getGraphics()); // pas ok
         }
+        window.repaint();
     }
 
 }

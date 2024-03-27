@@ -62,7 +62,7 @@ public abstract class Shape extends JComponent {
 
         xPos = newX;
         yPos = newY;
-
+        //System.out.println("xPos=" + xPos + ", yPos=" + yPos);
         setLocation(new Point((int) xPos, (int) yPos));
     }
 
