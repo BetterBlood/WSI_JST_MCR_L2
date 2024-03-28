@@ -1,6 +1,9 @@
 package Shape.Full;
 
 import Shape.Circle;
+import Shape.Renderer.BorderedRenderer;
+import Shape.Renderer.FullRenderer;
+
 import java.awt.*;
 
 /**
@@ -12,14 +15,13 @@ import java.awt.*;
  **/
 
 public class FullCircle extends Circle {
-    public FullCircle(int maxWidth, int maxHeight) {
-        super(maxWidth, maxHeight);
+    public FullCircle() {
+        super();
+        renderer = new FullRenderer();
     }
 
     @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLUE);
-        g2.fillOval(0, 0, size, size);
+    public Color getColor() {
+        return Color.BLUE;
     }
 }

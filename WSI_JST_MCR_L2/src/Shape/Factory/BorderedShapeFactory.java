@@ -5,12 +5,12 @@ import Shape.Bordered.BorderedSquare;
 
 public class BorderedShapeFactory extends ShapeFactory{
     @Override
-    public BorderedCircle createCircle(int maxWidth, int maxHeight) {
-        return new BorderedCircle(maxWidth, maxHeight);
+    public BorderedCircle createCircle() {
+        return new BorderedCircle();
     }
 
     @Override
-    public BorderedSquare createSquare(int maxWidth, int maxHeight) {
-        return new BorderedSquare(maxWidth, maxHeight);
+    public BorderedSquare createSquare() {
+        return new BorderedSquare();
     }
 }

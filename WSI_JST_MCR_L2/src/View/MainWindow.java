@@ -1,12 +1,8 @@
 package View;
-import Shape.Bordered.BorderedCircle;
-import Shape.Bordered.BorderedSquare;
-import Shape.Shape;
-import Shape.Full.FullCircle;
-import Shape.Full.FullSquare;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 
 
 /**
@@ -22,7 +18,7 @@ public class MainWindow implements Displayer {
     protected Image image;
     private final Dimension dimension;
     private final JFrame frame;
-    private final JPanel panel;
+    private final Container panel;
     // endregion
 
     // region Intern Static Class (for Singleton)
@@ -40,7 +36,8 @@ public class MainWindow implements Displayer {
 
         frame = new JFrame();
 
-        panel = new JPanel();
+        panel = frame.getContentPane();;
+
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
 
@@ -48,7 +45,6 @@ public class MainWindow implements Displayer {
         frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
 
         panel.setBackground(Color.LIGHT_GRAY);
-        panel.setBorder(BorderFactory.createLineBorder(Color.black));
         image = panel.createImage(dimension.width, dimension.height);
         // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
         frame.setSize(dimension.width + 15, dimension.height + 35);
@@ -56,10 +52,13 @@ public class MainWindow implements Displayer {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.add(panel);
-        frame.setContentPane(panel);
+        //frame.setContentPane(panel);
 
         frame.pack();
         frame.setVisible(true);
+        panel.getGraphics().clearRect(0, 0, getWidth(), getHeight());
+        panel.getGraphics().setColor(Color.LIGHT_GRAY);
+        panel.getGraphics().fillRect(0, 0, getWidth(), getHeight());
     }
     // endregion
 
@@ -70,12 +69,12 @@ public class MainWindow implements Displayer {
 
     @Override
     public int getWidth() {
-        return frame.getWidth();
+        return panel.getWidth();
     }
 
     @Override
     public int getHeight() {
-        return frame.getHeight();
+        return panel.getHeight();
     }
 
     @Override
@@ -86,13 +85,25 @@ public class MainWindow implements Displayer {
     @Override
     public void repaint() {
         //frame.getGraphics().drawImage(image, 0, 0, null);
-        panel.getGraphics().drawImage(image, 0, 0, null);
-        panel.paintComponents(getGraphics());
+        //panel.getGraphics().clearRect(0, 0, getWidth(), getHeight());
+        //panel.getGraphics().setColor(Color.LIGHT_GRAY);
+        //panel.getGraphics().fillRect(0, 0, getWidth(), getHeight());
+        //getGraphics().drawImage(image, 0, 0, null);
+        //panel.paintComponents(getGraphics());
+        //panel.repaint();
+
+        panel.getGraphics().drawImage(image, 0,0,null);
+        getGraphics().clearRect(0, 0, getWidth(), getHeight());
     }
 
     @Override
     public void setTitle(String title) {
         frame.setTitle(title);
+    }
+
+    @Override
+    public void addKeyListener(KeyAdapter ka) {
+
     }
     // endregion
 

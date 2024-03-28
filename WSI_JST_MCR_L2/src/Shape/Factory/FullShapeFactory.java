@@ -6,12 +6,12 @@ import Shape.Full.FullSquare;
 
 public class FullShapeFactory extends ShapeFactory{
     @Override
-    public FullCircle createCircle(int maxWidth, int maxHeight) {
-        return new FullCircle(maxWidth, maxHeight);
+    public FullCircle createCircle() {
+        return new FullCircle();
     }
 
     @Override
-    public FullSquare createSquare(int maxWidth, int maxHeight) {
-        return new FullSquare(maxWidth, maxHeight);
+    public FullSquare createSquare() {
+        return new FullSquare();
     }
 }
