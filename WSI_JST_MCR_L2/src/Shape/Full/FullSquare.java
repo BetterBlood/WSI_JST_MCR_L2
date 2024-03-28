@@ -15,7 +15,7 @@ import java.awt.*;
 public class FullSquare extends Square {
     public FullSquare() {
         super();
-        renderer = new FullRenderer();
+        renderer = FullRenderer.getInstance();
     }
 
     @Override

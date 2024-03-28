@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 
 
@@ -36,29 +38,28 @@ public class MainWindow implements Displayer {
 
         frame = new JFrame();
 
-        panel = frame.getContentPane();;
-
-
         Toolkit toolkit = Toolkit.getDefaultToolkit();
 
         Dimension screenSize = toolkit.getScreenSize();
         frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
-
-        panel.setBackground(Color.LIGHT_GRAY);
-        image = panel.createImage(dimension.width, dimension.height);
-        // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
-        frame.setSize(dimension.width + 15, dimension.height + 35);
+        frame.setSize(dimension.width, dimension.height);
         frame.setPreferredSize(frame.getSize());
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.add(panel);
-        //frame.setContentPane(panel);
+        panel = frame.getContentPane();
+        panel.setBackground(Color.LIGHT_GRAY);
+        image = panel.createImage(dimension.width, dimension.height);
 
-        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                image = panel.createImage(getWidth(),
+                        (getHeight() == 0 ? 1 : getHeight()) // aaaaaaaaa exception on height = 0
+                );
+            }
+        });
         frame.setVisible(true);
-        panel.getGraphics().clearRect(0, 0, getWidth(), getHeight());
-        panel.getGraphics().setColor(Color.LIGHT_GRAY);
-        panel.getGraphics().fillRect(0, 0, getWidth(), getHeight());
     }
     // endregion
 
@@ -79,7 +80,7 @@ public class MainWindow implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        return (Graphics2D)panel.getGraphics();
+        return (Graphics2D) panel.getGraphics();
     }
 
     @Override

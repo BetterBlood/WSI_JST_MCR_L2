@@ -17,7 +17,7 @@ import java.awt.*;
 public class FullCircle extends Circle {
     public FullCircle() {
         super();
-        renderer = new FullRenderer();
+        renderer = FullRenderer.getInstance();
     }
 
     @Override

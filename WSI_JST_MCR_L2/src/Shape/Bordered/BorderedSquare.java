@@ -7,7 +7,7 @@ import java.awt.*;
 public class BorderedSquare extends Square {
     public BorderedSquare(){
         super();
-        renderer = new BorderedRenderer();
+        renderer = BorderedRenderer.getInstance();
     }
 
     @Override

@@ -17,6 +17,22 @@ import javax.swing.*;
  * -----------------------------------------------------------------------------------
  **/
 
+/*
+public class Bouncers {
+
+    private LinkedList<Bouncable> bouncers;
+
+    public Bouncers() {
+
+    }
+    public void run() {
+
+    }
+    public static void main(String ... args) {
+        new Bouncers().run();
+    }
+}//*/
+
 public class Main {
     static CustomShape[] customShapes; // devra être géré ailleurs je pense
     public static void main(String[] args) {
@@ -40,7 +56,7 @@ public class Main {
             ++i;
             customShapes[i] = bFactory.createSquare();
         }
-        new Timer(25, e -> update(window)).start();
+        new Timer(10, e -> update(window)).start();
     }
 
     private static void update(Displayer window)
