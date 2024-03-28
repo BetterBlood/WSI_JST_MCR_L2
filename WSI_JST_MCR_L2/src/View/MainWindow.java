@@ -80,7 +80,7 @@ public class MainWindow implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        return (Graphics2D) panel.getGraphics();
+        return (Graphics2D) image.getGraphics();
     }
 
     @Override
