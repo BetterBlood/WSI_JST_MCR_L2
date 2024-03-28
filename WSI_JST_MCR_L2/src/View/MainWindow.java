@@ -40,26 +40,26 @@ public class MainWindow implements Displayer {
 
         frame = new JFrame();
 
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-
         panel = new JPanel();
+
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
 
         Dimension screenSize = toolkit.getScreenSize();
         frame.setLocation(new Point((int) screenSize.getWidth() / 4, (int) screenSize.getHeight() / 4));
 
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        image = panel.createImage(dimension.width, dimension.height);
         // TODO : pk 15 et 35 fonctionnent ??? idk mais ça marche
         frame.setSize(dimension.width + 15, dimension.height + 35);
+        frame.setPreferredSize(frame.getSize());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
         //frame.add(panel);
         frame.setContentPane(panel);
 
-        image = panel.createImage(dimension.width, dimension.height);
-        panel.getGraphics().drawImage(image, 0, 0, null);
-        //frame.pack();
+        frame.pack();
+        frame.setVisible(true);
     }
     // endregion
 
@@ -80,12 +80,13 @@ public class MainWindow implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        return (Graphics2D)image.getGraphics();
+        return (Graphics2D)panel.getGraphics();
     }
 
     @Override
     public void repaint() {
         //frame.getGraphics().drawImage(image, 0, 0, null);
+        panel.getGraphics().drawImage(image, 0, 0, null);
         panel.paintComponents(getGraphics());
     }
 
