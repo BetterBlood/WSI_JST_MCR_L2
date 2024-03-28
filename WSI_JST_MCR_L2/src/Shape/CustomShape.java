@@ -21,10 +21,10 @@ import static java.lang.Math.min;
 public abstract class CustomShape implements Bouncable {
     protected Displayer displayer;
 
-    protected final static Random random = new Random();
+    private final static Random random = new Random();
     protected final int size;
-    protected Vector2D movement;
-    protected double speed;
+    private final Vector2D movement;
+    private final double speed;
     protected Vector2D position;
 
     protected Renderer renderer;
@@ -65,7 +65,8 @@ public abstract class CustomShape implements Bouncable {
         if (newPosition.getY() >= maxY || newPosition.getY() <= 0)
         {
             movement.swapOnY();
-            newPosition = new Vector2D (newPosition.getX(),newPosition.getY() < 0 ? 0 : min(position.getY() + movement.getY() * speed, maxY));
+            newPosition = new Vector2D (newPosition.getX(), newPosition.getY() < 0 ? 0 :
+                            min(position.getY() + movement.getY() * speed, maxY));
         }
 
         position = newPosition;
