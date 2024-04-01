@@ -42,9 +42,7 @@ public abstract class CustomShape implements Bouncable {
 
     @Override
     public void draw() {
-        // TODO qqch comme :
         renderer.display(displayer.getGraphics(), this);
-        // mais renderer pas encore tester
     }
 
     @Override

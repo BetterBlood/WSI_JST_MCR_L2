@@ -1,10 +1,14 @@
 import Shape.Factory.BorderedShapeFactory;
 import Shape.Factory.FullShapeFactory;
 import Shape.CustomShape;
+import Shape.Factory.ShapeFactory;
 import View.Displayer;
 import View.MainWindow;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.LinkedList;
 
 /**
  * -----------------------------------------------------------------------------------
@@ -17,62 +21,56 @@ import javax.swing.*;
  * -----------------------------------------------------------------------------------
  **/
 
-/*
 public class Bouncers {
-
-    private LinkedList<Bouncable> bouncers;
+    private LinkedList<CustomShape> bouncers;
+    private final int NBR_BY_CLICK = 10;
 
     public Bouncers() {
-
+        bouncers = new LinkedList<>();
     }
     public void run() {
-
-    }
-    public static void main(String ... args) {
-        new Bouncers().run();
-    }
-}//*/
-
-public class Main {
-    static CustomShape[] customShapes; // devra être géré ailleurs je pense
-    public static void main(String[] args) {
-
         MainWindow window = MainWindow.getInstance();
-        MainWindow window2 = MainWindow.getInstance(); // récupère le même objet que la ligne précédente
-        window2.setTitle("Bouncer");
+        window.setTitle("Bouncer");
 
-        BorderedShapeFactory bFactory = new BorderedShapeFactory();
-        FullShapeFactory fFactory = new FullShapeFactory();
+        window.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_B ->
+                        instantiate(BorderedShapeFactory.getInstance(), NBR_BY_CLICK);
+                    case KeyEvent.VK_F ->
+                        instantiate(FullShapeFactory.getInstance(), NBR_BY_CLICK);
+                }
+            }
+        });
 
-        // tmp :
-        customShapes = new CustomShape[5 * 4];
-        for (int i = 0; i < customShapes.length; ++i)
-        {
-            customShapes[i] = fFactory.createCircle();
-            ++i;
-            customShapes[i] = fFactory.createSquare();
-            ++i;
-            customShapes[i] = bFactory.createCircle();
-            ++i;
-            customShapes[i] = bFactory.createSquare();
-        }
         new Timer(10, e -> update(window)).start();
     }
 
-    private static void update(Displayer window)
+    public static void main(String[] args) {
+        new Bouncers().run();
+    }
+
+    private void update(Displayer window)
     {
         moveShapes(window);
     }
 
-    private static void moveShapes(Displayer window)
-    {
-        //System.out.println("moveShapes called");
+    private void moveShapes(Displayer window) {
         window.repaint();
-        for (CustomShape customShape : customShapes) {
-            customShape.move(); // à tester
-            customShape.draw(); // à tester
+        for (CustomShape customShape : bouncers) {
+            customShape.move();
+            customShape.draw();
         }
-        //window.repaint();
+    }
+
+    private void instantiate(ShapeFactory factory, int nbr)
+    {
+        for (int i = 0; i < nbr; ++i)
+        {
+            bouncers.add(factory.createCircle());
+            bouncers.add(factory.createSquare());
+        }
     }
 
 }

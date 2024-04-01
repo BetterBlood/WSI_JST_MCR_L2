@@ -55,7 +55,8 @@ public class MainWindow implements Displayer {
             @Override
             public void componentResized(ComponentEvent e) {
                 image = panel.createImage(getWidth(),
-                        (getHeight() == 0 ? 1 : getHeight()) // aaaaaaaaa exception on height = 0
+                        // Exception on height = 0 => set to 1 in this case
+                        (getHeight() == 0 ? 1 : getHeight())
                 );
             }
         });
@@ -85,14 +86,6 @@ public class MainWindow implements Displayer {
 
     @Override
     public void repaint() {
-        //frame.getGraphics().drawImage(image, 0, 0, null);
-        //panel.getGraphics().clearRect(0, 0, getWidth(), getHeight());
-        //panel.getGraphics().setColor(Color.LIGHT_GRAY);
-        //panel.getGraphics().fillRect(0, 0, getWidth(), getHeight());
-        //getGraphics().drawImage(image, 0, 0, null);
-        //panel.paintComponents(getGraphics());
-        //panel.repaint();
-
         panel.getGraphics().drawImage(image, 0,0,null);
         getGraphics().clearRect(0, 0, getWidth(), getHeight());
     }
@@ -104,7 +97,7 @@ public class MainWindow implements Displayer {
 
     @Override
     public void addKeyListener(KeyAdapter ka) {
-
+        frame.addKeyListener(ka);
     }
     // endregion
 
