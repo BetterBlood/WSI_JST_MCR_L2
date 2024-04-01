@@ -2,7 +2,14 @@ package Shape.Factory;
 
 import Shape.Bordered.BorderedCircle;
 import Shape.Bordered.BorderedSquare;
-import View.MainWindow;
+
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
 
 public class BorderedShapeFactory extends ShapeFactory{
 

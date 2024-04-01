@@ -2,6 +2,14 @@ package Shape;
 
 import static java.lang.Math.sqrt;
 
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
+
 public class Vector2D {
 
     private double x;

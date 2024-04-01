@@ -3,6 +3,14 @@ package Shape;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
+
 public abstract class Square extends CustomShape {
     public Square() {
         super();

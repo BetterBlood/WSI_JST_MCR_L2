@@ -2,14 +2,23 @@ package Shape.Renderer;
 
 import java.awt.*;
 import Shape.Bouncable;
-import View.MainWindow;
+
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
 
 public class BorderedRenderer implements Renderer{
 
+    // region Intern Static Class (for Singleton)
     private static class Instance
     {
         static final BorderedRenderer instance = new BorderedRenderer();
     }
+    // endregion
 
     public static BorderedRenderer getInstance() {
         return BorderedRenderer.Instance.instance;

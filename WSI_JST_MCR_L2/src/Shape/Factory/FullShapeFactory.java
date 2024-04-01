@@ -1,8 +1,15 @@
 package Shape.Factory;
 
-import Shape.Circle;
 import Shape.Full.FullCircle;
 import Shape.Full.FullSquare;
+
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
 
 public class FullShapeFactory extends ShapeFactory{
 

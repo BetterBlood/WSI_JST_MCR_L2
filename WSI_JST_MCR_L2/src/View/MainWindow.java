@@ -6,7 +6,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 
-
 /**
  * -----------------------------------------------------------------------------------
  * @Authors     : Slimani Walid & Steiner Jeremiah
@@ -18,7 +17,6 @@ import java.awt.event.KeyAdapter;
 public class MainWindow implements Displayer {
     // region Field
     protected Image image;
-    private final Dimension dimension;
     private final JFrame frame;
     private final Container panel;
     // endregion
@@ -34,7 +32,7 @@ public class MainWindow implements Displayer {
     private MainWindow(){
         System.out.println("-- Singleton()");
         int size = 500;
-        dimension = new Dimension(size, size);
+        Dimension dimension = new Dimension(size, size);
 
         frame = new JFrame();
 

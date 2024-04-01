@@ -22,11 +22,23 @@ import java.util.LinkedList;
  **/
 
 public class Bouncers {
-    private LinkedList<CustomShape> bouncers;
-    private final int NBR_BY_CLICK = 10;
+
+    // region Field
+    private final LinkedList<CustomShape> bouncers;
+    private final static int NBR_BY_CLICK = 10;
+    private final static int REFRESH_DELAY = 10;
+    // endregion
+
+    // region Ctor
+    public static void main(String[] args) {
+        new Bouncers().run();
+    }
+    // endregion
+
+    // region Public methode
 
     public Bouncers() {
-        bouncers = new LinkedList<>();
+        bouncers = new LinkedList<CustomShape>();
     }
     public void run() {
         MainWindow window = MainWindow.getInstance();
@@ -40,17 +52,18 @@ public class Bouncers {
                         instantiate(BorderedShapeFactory.getInstance(), NBR_BY_CLICK);
                     case KeyEvent.VK_F ->
                         instantiate(FullShapeFactory.getInstance(), NBR_BY_CLICK);
+
+                    case KeyEvent.VK_E -> bouncers.clear();
+                    case KeyEvent.VK_Q -> System.exit(0);
                 }
             }
         });
 
-        new Timer(10, e -> update(window)).start();
+        new Timer(REFRESH_DELAY, e -> update(window)).start();
     }
+    // endregion
 
-    public static void main(String[] args) {
-        new Bouncers().run();
-    }
-
+    // region Private methode
     private void update(Displayer window)
     {
         moveShapes(window);
@@ -72,5 +85,5 @@ public class Bouncers {
             bouncers.add(factory.createSquare());
         }
     }
-
+    // endregion
 }

@@ -5,6 +5,14 @@ import Shape.Renderer.BorderedRenderer;
 
 import java.awt.*;
 
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
+
 public class BorderedCircle extends Circle {
     public BorderedCircle() {
         super();

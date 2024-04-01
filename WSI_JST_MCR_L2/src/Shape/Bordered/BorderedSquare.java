@@ -4,6 +4,14 @@ import Shape.Renderer.BorderedRenderer;
 import Shape.Square;
 import java.awt.*;
 
+/**
+ * -----------------------------------------------------------------------------------
+ * @Authors     : Slimani Walid & Steiner Jeremiah
+ * @Description : TODO
+ * @Info        : /
+ * -----------------------------------------------------------------------------------
+ **/
+
 public class BorderedSquare extends Square {
     public BorderedSquare(){
         super();

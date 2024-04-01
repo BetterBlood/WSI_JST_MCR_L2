@@ -4,8 +4,6 @@ import Shape.Renderer.Renderer;
 import View.Displayer;
 import View.MainWindow;
 
-
-import java.awt.*;
 import java.util.Random;
 
 import static java.lang.Math.max;
@@ -18,6 +16,7 @@ import static java.lang.Math.min;
  * @Info        : /
  * -----------------------------------------------------------------------------------
  **/
+
 public abstract class CustomShape implements Bouncable {
     protected Displayer displayer;
 
