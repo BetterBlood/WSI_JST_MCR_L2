@@ -20,11 +20,10 @@ public class BorderedRenderer implements Renderer{
     }
     // endregion
 
+    // region Public methode
     public static BorderedRenderer getInstance() {
         return BorderedRenderer.Instance.instance;
     }
-
-    private BorderedRenderer(){};
 
     @Override
     public void display(Graphics2D g, Bouncable b) {
@@ -32,4 +31,5 @@ public class BorderedRenderer implements Renderer{
         g.setStroke(new BasicStroke(2));
         g.draw(b.getShape());
     }
+    // endregion
 }

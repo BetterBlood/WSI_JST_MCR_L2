@@ -14,14 +14,17 @@ import java.awt.*;
  **/
 
 public class BorderedCircle extends Circle {
+    // region Ctor
     public BorderedCircle() {
         super();
         renderer = BorderedRenderer.getInstance();
     }
+    // endregion
 
+    // region Public methode
     @Override
     public Color getColor() {
         return Color.GREEN;
     }
-
+    // endregion
 }

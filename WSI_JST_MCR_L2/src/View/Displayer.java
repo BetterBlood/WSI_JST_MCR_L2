@@ -13,10 +13,12 @@ import java.awt.event.KeyAdapter;
 
 public interface Displayer
 {
+    // region Public methode
     int getWidth();
     int getHeight();
     Graphics2D getGraphics();
     void repaint();
     void setTitle(String title);
     void addKeyListener(KeyAdapter ka);
+    // endregion
 }

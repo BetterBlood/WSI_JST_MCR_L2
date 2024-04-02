@@ -13,13 +13,17 @@ import java.awt.*;
  **/
 
 public class FullSquare extends Square {
+    // region Ctor
     public FullSquare() {
         super();
         renderer = FullRenderer.getInstance();
     }
+    // endregion
 
+    // region Public methode
     @Override
     public Color getColor() {
         return Color.ORANGE;
     }
+    // endregion
 }

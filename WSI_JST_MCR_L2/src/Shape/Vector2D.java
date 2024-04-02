@@ -11,15 +11,19 @@ import static java.lang.Math.sqrt;
  **/
 
 public class Vector2D {
-
+    // region Field
     private double x;
     private double y;
+    // endregion
 
+    // region Ctor
     public Vector2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
+    // endregion
 
+    // region Public methode
     public void normalize()
     {
         double length = sqrt(x * x + y * y);
@@ -44,4 +48,5 @@ public class Vector2D {
     {
         y *= -1;
     }
+    // endregion
 }

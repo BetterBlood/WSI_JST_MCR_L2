@@ -11,8 +11,10 @@ import java.awt.*;
  **/
 
 public interface Bouncable {
+    // region Public methode
     void draw();
     void move();
     Color getColor();
     Shape getShape();
+    // endregion
 }

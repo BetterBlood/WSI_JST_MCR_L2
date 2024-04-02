@@ -20,6 +20,7 @@ public class BorderedShapeFactory extends ShapeFactory{
     }
     // endregion
 
+    // region Public methode
     @Override
     public BorderedCircle createCircle() {
         return new BorderedCircle();
@@ -33,6 +34,6 @@ public class BorderedShapeFactory extends ShapeFactory{
     public static BorderedShapeFactory getInstance() {
         return BorderedShapeFactory.Instance.instance;
     }
-
+    // endregion
 
 }

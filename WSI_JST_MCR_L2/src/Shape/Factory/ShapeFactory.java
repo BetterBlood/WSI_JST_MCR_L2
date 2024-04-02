@@ -12,6 +12,8 @@ import Shape.Square;
  **/
 
 public abstract class ShapeFactory {
+    // region Public methode
     public abstract Circle createCircle();
     public abstract Square createSquare();
+    // endregion
 }

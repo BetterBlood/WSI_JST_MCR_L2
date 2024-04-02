@@ -20,6 +20,7 @@ public class FullShapeFactory extends ShapeFactory{
     }
     // endregion
 
+    // region Public methode
     @Override
     public FullCircle createCircle() {
         return new FullCircle();
@@ -33,4 +34,5 @@ public class FullShapeFactory extends ShapeFactory{
     public static FullShapeFactory getInstance() {
         return FullShapeFactory.Instance.instance;
     }
+    // endregion
 }

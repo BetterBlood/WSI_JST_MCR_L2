@@ -18,6 +18,7 @@ import static java.lang.Math.min;
  **/
 
 public abstract class CustomShape implements Bouncable {
+    // region Field
     protected Displayer displayer;
 
     private final static Random random = new Random();
@@ -27,7 +28,9 @@ public abstract class CustomShape implements Bouncable {
     protected Vector2D position;
 
     protected Renderer renderer;
+    // endregion
 
+    // region Ctor
     public CustomShape() {
         displayer = MainWindow.getInstance();
         int minSize = 10;
@@ -38,7 +41,9 @@ public abstract class CustomShape implements Bouncable {
         speed = random.nextInt(3, 10);
         position = new Vector2D(displayer.getWidth()/2., displayer.getHeight()/2.);
     }
+    // endregion
 
+    // region Public methode
     @Override
     public void draw() {
         renderer.display(displayer.getGraphics(), this);
@@ -68,4 +73,5 @@ public abstract class CustomShape implements Bouncable {
 
         position = newPosition;
     }
+    // endregion
 }

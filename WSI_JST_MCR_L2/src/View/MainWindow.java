@@ -99,7 +99,4 @@ public class MainWindow implements Displayer {
     }
     // endregion
 
-
-    // region Private Methods
-    // endregion
 }

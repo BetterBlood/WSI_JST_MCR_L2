@@ -13,13 +13,17 @@ import java.awt.*;
  **/
 
 public class BorderedSquare extends Square {
-    public BorderedSquare(){
+    // region Ctor
+    public BorderedSquare() {
         super();
         renderer = BorderedRenderer.getInstance();
     }
+    // endregion
 
+    // region Public methode
     @Override
     public Color getColor() {
         return Color.RED;
     }
+    // endregion
 }

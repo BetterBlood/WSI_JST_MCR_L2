@@ -19,6 +19,7 @@ public class FullRenderer implements Renderer {
     }
     // endregion
 
+    // region Public methode
     public static FullRenderer getInstance() {
         return FullRenderer.Instance.instance;
     }
@@ -28,4 +29,5 @@ public class FullRenderer implements Renderer {
         g.setColor(b.getColor());
         g.fill(b.getShape());
     }
+    // endregion
 }

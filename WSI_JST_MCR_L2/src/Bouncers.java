@@ -36,7 +36,6 @@ public class Bouncers {
     // endregion
 
     // region Public methode
-
     public Bouncers() {
         bouncers = new LinkedList<CustomShape>();
     }
