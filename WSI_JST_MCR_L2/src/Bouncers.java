@@ -1,5 +1,6 @@
+import Shape.Bouncable;
 import Shape.Factory.BorderedShapeFactory;
-import Shape.Factory.FullShapeFactory;
+import Shape.Factory.FilledShapeFactory;
 import Shape.CustomShape;
 import Shape.Factory.ShapeFactory;
 import View.Displayer;
@@ -14,8 +15,8 @@ import java.util.LinkedList;
  * -----------------------------------------------------------------------------------
  * @Labo         : Labo 02 : Singleton
  * @Authors      : Slimani Walid & Steiner Jeremiah
- * @Description  : TODO
- *
+ * @Description  : This file contains the definition of the Bouncers class,
+ *                 represents a program that simulates bouncing shapes.
  * @Remarque     : /
  * @Modification : /
  * -----------------------------------------------------------------------------------
@@ -24,21 +25,37 @@ import java.util.LinkedList;
 public class Bouncers {
 
     // region Field
-    private final LinkedList<CustomShape> bouncers;
+    /** List of bouncing shapes. */
+    private final LinkedList<Bouncable> bouncers;
+
+    /** Number of shapes to instantiate by each key press. */
     private final static int NBR_BY_CLICK = 10;
+
+    /** Delay for refreshing the display, in milliseconds. */
     private final static int REFRESH_DELAY = 10;
     // endregion
 
     // region Ctor
-    public static void main(String[] args) {
-        new Bouncers().run();
+    /**
+     * @brief Constructs a new instance of the Bouncers class.
+     */
+    private Bouncers() {
+        bouncers = new LinkedList<Bouncable>();
     }
     // endregion
 
     // region Public methode
-    public Bouncers() {
-        bouncers = new LinkedList<CustomShape>();
+    /**
+     * @brief The main method of the program.
+     * @param args The command-line arguments.
+     */
+    public static void main(String[] args) {
+        new Bouncers().run();
     }
+
+    /**
+     * @brief Runs the Bouncers program.
+     */
     public void run() {
         MainWindow window = MainWindow.getInstance();
         window.setTitle("Bouncer");
@@ -50,7 +67,7 @@ public class Bouncers {
                     case KeyEvent.VK_B ->
                         instantiate(BorderedShapeFactory.getInstance(), NBR_BY_CLICK);
                     case KeyEvent.VK_F ->
-                        instantiate(FullShapeFactory.getInstance(), NBR_BY_CLICK);
+                        instantiate(FilledShapeFactory.getInstance(), NBR_BY_CLICK);
 
                     case KeyEvent.VK_E -> bouncers.clear();
                     case KeyEvent.VK_Q -> System.exit(0);
@@ -63,19 +80,32 @@ public class Bouncers {
     // endregion
 
     // region Private methode
+    /**
+     * @brief Updates the display.
+     * @param window The display window.
+     */
     private void update(Displayer window)
     {
         moveShapes(window);
     }
 
+    /**
+     * @brief Moves the shapes and updates the display.
+     * @param window The display window.
+     */
     private void moveShapes(Displayer window) {
         window.repaint();
-        for (CustomShape customShape : bouncers) {
+        for (Bouncable customShape : bouncers) {
             customShape.move();
             customShape.draw();
         }
     }
 
+    /**
+     * @brief Instantiates a specified number of shapes using the given factory.
+     * @param factory The shape factory.
+     * @param nbr The number of shapes to instantiate.
+     */
     private void instantiate(ShapeFactory factory, int nbr)
     {
         for (int i = 0; i < nbr; ++i)

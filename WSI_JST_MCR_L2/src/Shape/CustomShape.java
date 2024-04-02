@@ -12,26 +12,40 @@ import static java.lang.Math.min;
 /**
  * -----------------------------------------------------------------------------------
  * @Authors     : Slimani Walid & Steiner Jeremiah
- * @Description : TODO
- * @Info        : /
+ * @Description : This file contains the definition of the CustomShape abstract class.
+ * @Info        : Represents an abstract class for custom shapes.
  * -----------------------------------------------------------------------------------
  **/
 
 public abstract class CustomShape implements Bouncable {
     // region Field
+    /** The display area associated with the custom shape. */
     protected Displayer displayer;
 
+    /** The random number generator. */
     private final static Random random = new Random();
+
+    /** The size of the custom shape. */
     protected final int size;
+
+    /** The movement vector of the custom shape. */
     private final Vector2D movement;
+
+    /** The speed of the custom shape. */
     private final double speed;
+
+    /** The position vector of the custom shape. */
     protected Vector2D position;
 
+    /** The renderer used to draw the custom shape. */
     protected Renderer renderer;
     // endregion
 
     // region Ctor
-    public CustomShape() {
+    /**
+     * @brief Constructs a new instance of the CustomShape class.
+     */
+    protected CustomShape() {
         displayer = MainWindow.getInstance();
         int minSize = 10;
         int maxSize = 50;
@@ -44,11 +58,17 @@ public abstract class CustomShape implements Bouncable {
     // endregion
 
     // region Public methode
+    /**
+     * @brief Draws the custom shape.
+     */
     @Override
     public void draw() {
         renderer.display(displayer.getGraphics(), this);
     }
 
+    /**
+     * @brief Moves the custom shape by applying the current movement.
+     */
     @Override
     public void move() {
         int maxX = displayer.getWidth() - size;
