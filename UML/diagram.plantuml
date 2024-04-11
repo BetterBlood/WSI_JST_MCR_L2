@@ -83,23 +83,7 @@ class FilledSquare {
 }
 class Instance {
   + Instance(): 
-  ~ instance: FilledShapeFactory
-}
-class Instance {
-  + Instance(): 
-  ~ instance: FilledRenderer
-}
-class Instance {
-  + Instance(): 
-  ~ instance: BorderedRenderer
-}
-class Instance {
-  + Instance(): 
-  ~ instance: BorderedShapeFactory
-}
-class Instance {
-  + Instance(): 
-  ~ instance: MainWindow
+  ~ instance: enclosingClass
 }
 class MainWindow {
   - MainWindow(): 
@@ -147,11 +131,11 @@ FilledCircle          -[#000082,plain]-^  Circle
 FilledRenderer        -[#008200,dashed]-^  Renderer             
 FilledShapeFactory    -[#000082,plain]-^  ShapeFactory         
 FilledSquare          -[#000082,plain]-^  Square               
-Instance              +-[#820000,plain]-  BorderedRenderer     
-Instance              +-[#820000,plain]-  BorderedShapeFactory 
-Instance              +-[#820000,plain]-  FilledRenderer       
-Instance              +-[#820000,plain]-  FilledShapeFactory   
-Instance              +-[#820000,plain]-  MainWindow           
+Instance              +-[#820000,plain]-  BorderedRenderer : internal Class  
+Instance              +-[#820000,plain]-  BorderedShapeFactory : internal Class
+Instance              +-[#820000,plain]-  FilledRenderer : internal Class      
+Instance              +-[#820000,plain]-  FilledShapeFactory : internal Class   
+Instance              +-[#820000,plain]-  MainWindow : internal Class           
 MainWindow            -[#008200,dashed]-^  Displayer            
 Square                -[#000082,plain]-^  CustomShape  
 
