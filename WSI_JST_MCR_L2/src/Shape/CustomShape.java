@@ -47,13 +47,24 @@ public abstract class CustomShape implements Bouncable {
      */
     protected CustomShape() {
         displayer = MainWindow.getInstance();
-        int minSize = 10;
-        int maxSize = 50;
-        size = random.nextInt(minSize, maxSize);
-        movement = new Vector2D(random.nextInt(-10, 10), random.nextInt(-10, 10));
+        size = random.nextInt(5, 50);
+        movement = new Vector2D(
+                random.nextInt(-10, 10),
+                random.nextInt(-10, 10)
+        );
         movement.normalize();
         speed = random.nextInt(3, 10);
-        position = new Vector2D(displayer.getWidth()/2., displayer.getHeight()/2.);
+
+        // as demo (spawn at center instead of random position as pdf)
+        position = new Vector2D(
+                displayer.getWidth()/2.,
+                displayer.getHeight()/2.
+        );
+        // if random spawn needed ctrl + '/' to uncomment lines followed:
+//        position = new Vector2D(
+//                random.nextInt(1, displayer.getWidth()),
+//                random.nextInt(1, displayer.getHeight())
+//        );
     }
     // endregion
 
