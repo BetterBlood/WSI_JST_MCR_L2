@@ -1,0 +1,142 @@
+@startuml Shapes_L2
+
+!theme plain
+skinparam linetype ortho
+
+class BorderedCircle {
+  + BorderedCircle(): 
+   color: Color
+}
+class BorderedRenderer {
+  + BorderedRenderer(): 
+  + display(Graphics2D, Bouncable): void
+   instance: BorderedRenderer
+}
+class BorderedShapeFactory {
+  + BorderedShapeFactory(): 
+  + createSquare(): BorderedSquare
+  + createCircle(): BorderedCircle
+   instance: BorderedShapeFactory
+}
+class BorderedSquare {
+  + BorderedSquare(): 
+   color: Color
+}
+interface Bouncable << interface >> {
+  + move(): void
+  + draw(): void
+   color: Color
+   shape: Shape
+}
+class Bouncers {
+  - Bouncers(): 
+  - update(Displayer): void
+  - moveShapes(Displayer): void
+  + main(String[]): void
+  + run(): void
+  - instantiate(ShapeFactory, int): void
+}
+class Circle {
+  + Circle(): 
+   shape: Shape
+}
+class CustomShape {
+  # CustomShape(): 
+  + draw(): void
+  + move(): void
+}
+interface Displayer << interface >> {
+  + addKeyListener(KeyAdapter): void
+  + repaint(): void
+   height: int
+   width: int
+   title: String
+   graphics: Graphics2D
+}
+class FilledCircle {
+  + FilledCircle(): 
+   color: Color
+}
+class FilledRenderer {
+  + FilledRenderer(): 
+  + display(Graphics2D, Bouncable): void
+   instance: FilledRenderer
+}
+class FilledShapeFactory {
+  + FilledShapeFactory(): 
+  + createSquare(): FilledSquare
+  + createCircle(): FilledCircle
+   instance: FilledShapeFactory
+}
+class FilledSquare {
+  + FilledSquare(): 
+   color: Color
+}
+class Instance {
+  + Instance(): 
+}
+class Instance {
+  + Instance(): 
+}
+class Instance {
+  + Instance(): 
+}
+class Instance {
+  + Instance(): 
+}
+class Instance {
+  + Instance(): 
+}
+class MainWindow {
+  - MainWindow(): 
+  + addKeyListener(KeyAdapter): void
+  + repaint(): void
+   height: int
+   width: int
+   title: String
+   graphics: Graphics2D
+   instance: MainWindow
+}
+interface Renderer << interface >> {
+  + display(Graphics2D, Bouncable): void
+}
+class ShapeFactory {
+  + ShapeFactory(): 
+  + createCircle(): Circle
+  + createSquare(): Square
+}
+class Square {
+  + Square(): 
+   shape: Shape
+}
+class Vector2D {
+  + Vector2D(double, double): 
+  - x: double
+  - y: double
+  + swapOnY(): void
+  + normalize(): void
+  + swapOnX(): void
+   y: double
+   x: double
+}
+         
+CustomShape           -[#008200,dashed]-^  Bouncable          
+Circle                -[#000082,plain]-^  CustomShape       
+Square                -[#000082,plain]-^  CustomShape    
+
+BorderedCircle        -[#000082,plain]-^  Circle               
+FilledCircle          -[#000082,plain]-^  Circle           
+BorderedSquare        -[#000082,plain]-^  Square        
+FilledSquare          -[#000082,plain]-^  Square         
+
+BorderedRenderer      -[#008200,dashed]-^  Renderer             
+BorderedShapeFactory  -[#000082,plain]-^  ShapeFactory             
+FilledRenderer        -[#008200,dashed]-^  Renderer             
+FilledShapeFactory    -[#000082,plain]-^  ShapeFactory                
+Instance              +-[#820000,plain]-  BorderedRenderer     
+Instance              +-[#820000,plain]-  BorderedShapeFactory 
+Instance              +-[#820000,plain]-  FilledRenderer       
+Instance              +-[#820000,plain]-  FilledShapeFactory   
+Instance              +-[#820000,plain]-  MainWindow           
+MainWindow            -[#008200,dashed]-^  Displayer           
+@enduml
