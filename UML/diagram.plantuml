@@ -1,6 +1,7 @@
 @startuml Shapes_L2
 
 skinparam classAttributeIconSize 0
+hide circle
 
 class BorderedCircle {
   + BorderedCircle(): 
