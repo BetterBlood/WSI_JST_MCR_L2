@@ -153,5 +153,13 @@ Instance              +-[#820000,plain]-  FilledRenderer
 Instance              +-[#820000,plain]-  FilledShapeFactory   
 Instance              +-[#820000,plain]-  MainWindow           
 MainWindow            -[#008200,dashed]-^  Displayer            
-Square                -[#000082,plain]-^  CustomShape          
+Square                -[#000082,plain]-^  CustomShape  
+
+
+
+BorderedShapeFactory  ..>                 BorderedCircle : create
+BorderedShapeFactory  ..>                 BorderedSquare : create
+
+FilledShapeFactory    ..>                 FilledCircle : create
+FilledShapeFactory    ..>                 FilledSquare : create
 @enduml
