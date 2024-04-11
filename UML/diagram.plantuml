@@ -1,142 +1,157 @@
 @startuml Shapes_L2
 
-!theme plain
-skinparam linetype ortho
+skinparam classAttributeIconSize 0
 
 class BorderedCircle {
   + BorderedCircle(): 
-   color: Color
+  + getColor(): Color
 }
 class BorderedRenderer {
   + BorderedRenderer(): 
   + display(Graphics2D, Bouncable): void
-   instance: BorderedRenderer
+  + getInstance(): BorderedRenderer
 }
 class BorderedShapeFactory {
   + BorderedShapeFactory(): 
   + createSquare(): BorderedSquare
   + createCircle(): BorderedCircle
-   instance: BorderedShapeFactory
+  + getInstance(): BorderedShapeFactory
 }
 class BorderedSquare {
   + BorderedSquare(): 
-   color: Color
+  + getColor(): Color
 }
 interface Bouncable << interface >> {
   + move(): void
+  + getShape(): Shape
   + draw(): void
-   color: Color
-   shape: Shape
+  + getColor(): Color
 }
 class Bouncers {
   - Bouncers(): 
+  - bouncers: LinkedList<Bouncable>
+  - NBR_BY_CLICK: int
+  - REFRESH_DELAY: int
   - update(Displayer): void
   - moveShapes(Displayer): void
   + main(String[]): void
   + run(): void
   - instantiate(ShapeFactory, int): void
 }
-class Circle {
+abstract class Circle {
   + Circle(): 
-   shape: Shape
+  + getShape(): Shape
 }
-class CustomShape {
+abstract class CustomShape {
   # CustomShape(): 
+  # size: int
+  - random: Random
+  - speed: double
+  - movement: Vector2D
+  # position: Vector2D
+  # renderer: Renderer
+  # displayer: Displayer
   + draw(): void
   + move(): void
 }
 interface Displayer << interface >> {
+  + getWidth(): int
   + addKeyListener(KeyAdapter): void
+  + getHeight(): int
   + repaint(): void
-   height: int
-   width: int
-   title: String
-   graphics: Graphics2D
+  + getGraphics(): Graphics2D
+  + setTitle(String): void
 }
 class FilledCircle {
   + FilledCircle(): 
-   color: Color
+  + getColor(): Color
 }
 class FilledRenderer {
   + FilledRenderer(): 
+  + getInstance(): FilledRenderer
   + display(Graphics2D, Bouncable): void
-   instance: FilledRenderer
 }
 class FilledShapeFactory {
   + FilledShapeFactory(): 
   + createSquare(): FilledSquare
   + createCircle(): FilledCircle
-   instance: FilledShapeFactory
+  + getInstance(): FilledShapeFactory
 }
 class FilledSquare {
   + FilledSquare(): 
-   color: Color
+  + getColor(): Color
 }
 class Instance {
   + Instance(): 
+  ~ instance: FilledShapeFactory
 }
 class Instance {
   + Instance(): 
+  ~ instance: FilledRenderer
 }
 class Instance {
   + Instance(): 
+  ~ instance: BorderedRenderer
 }
 class Instance {
   + Instance(): 
+  ~ instance: BorderedShapeFactory
 }
 class Instance {
   + Instance(): 
+  ~ instance: MainWindow
 }
 class MainWindow {
   - MainWindow(): 
+  - panel: Container
+  # image: Image
+  - frame: JFrame
+  + getInstance(): MainWindow
+  + getGraphics(): Graphics2D
   + addKeyListener(KeyAdapter): void
   + repaint(): void
-   height: int
-   width: int
-   title: String
-   graphics: Graphics2D
-   instance: MainWindow
+  + getWidth(): int
+  + setTitle(String): void
+  + getHeight(): int
 }
 interface Renderer << interface >> {
   + display(Graphics2D, Bouncable): void
 }
-class ShapeFactory {
+abstract class ShapeFactory {
   + ShapeFactory(): 
   + createCircle(): Circle
   + createSquare(): Square
 }
-class Square {
+abstract class Square {
   + Square(): 
-   shape: Shape
+  + getShape(): Shape
 }
 class Vector2D {
   + Vector2D(double, double): 
   - x: double
   - y: double
+  + getY(): double
   + swapOnY(): void
   + normalize(): void
   + swapOnX(): void
-   y: double
-   x: double
+  + getX(): double
 }
-         
-CustomShape           -[#008200,dashed]-^  Bouncable          
-Circle                -[#000082,plain]-^  CustomShape       
-Square                -[#000082,plain]-^  CustomShape    
 
 BorderedCircle        -[#000082,plain]-^  Circle               
-FilledCircle          -[#000082,plain]-^  Circle           
-BorderedSquare        -[#000082,plain]-^  Square        
-FilledSquare          -[#000082,plain]-^  Square         
-
 BorderedRenderer      -[#008200,dashed]-^  Renderer             
-BorderedShapeFactory  -[#000082,plain]-^  ShapeFactory             
+BorderedShapeFactory  -[#000082,plain]-^  ShapeFactory         
+BorderedSquare        -[#000082,plain]-^  Square               
+Circle                -[#000082,plain]-^  CustomShape          
+CustomShape           -[#008200,dashed]-^  Bouncable            
+FilledCircle          -[#000082,plain]-^  Circle               
 FilledRenderer        -[#008200,dashed]-^  Renderer             
-FilledShapeFactory    -[#000082,plain]-^  ShapeFactory                
+FilledShapeFactory    -[#000082,plain]-^  ShapeFactory         
+FilledSquare          -[#000082,plain]-^  Square               
 Instance              +-[#820000,plain]-  BorderedRenderer     
 Instance              +-[#820000,plain]-  BorderedShapeFactory 
 Instance              +-[#820000,plain]-  FilledRenderer       
 Instance              +-[#820000,plain]-  FilledShapeFactory   
 Instance              +-[#820000,plain]-  MainWindow           
-MainWindow            -[#008200,dashed]-^  Displayer           
+MainWindow            -[#008200,dashed]-^  Displayer            
+Square                -[#000082,plain]-^  CustomShape          
 @enduml
